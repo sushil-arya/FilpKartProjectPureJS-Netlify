@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FlipKart-Shopping On Stop</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        </style>
+    </head>
+
+    <body>
+        
+
+
+        <script>
+
+            function setAttributeFromObject(element, obj) {
+
+                for (var key in obj) {
+                    //console.log(key + ': ' + myObject[key]);
+                    element.setAttribute(key, obj[key]);
+
+                }
+
+                //function may return something
+                return element;
+            }
+
+            function createMyElement(elem) {
+                return document.createElement(elem);
+            }
+
+
+            var appendToHead = (elem)=>{
+                document.head.append(elem);
+            }
+
+            // creating an element
+            var link = createMyElement('link');
+
+            var script = createMyElement('script');
+            
+
+        
+            const myObject = {
+                    'rel': "stylesheet",
+                    'href': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+            }
+            
+            const myScriptObject = {
+                'src': "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            }
+
+
+            //2. calling function
+            link = setAttributeFromObject(link, myObject);
+
+            //2. calling setAttributeFromObject function
+
+            script = setAttributeFromObject(script, myScriptObject);
+
+            console.log(link);
+            console.log(script);
+    
+
+
+
+            /*
+            
+            link.setAttribute('href', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+    
+            link.setAttribute('rel', 'stylesheet');
+            */
+
+            appendToHead(link);
+            appendToHead(script);
+
+            /*Header Part*/
+
+            var header = createMyElement('header');
+            var header_top = createMyElement('header_top');
+
+            var div_logo = createMyElement('div');
+            var image = createMyElement('img');
+
+
+            var div_search = createMyElement('div');
+            var div_search_bar = createMyElement('div');
+            var input_search = createMyElement('input');
+            var span_search = createMyElement('span');
+
+
+            var div_links  = createMyElement('div');
+            var a_links = createMyElement('a');
+            var img_alink = createMyElement('img');
+            var span_alink = createMyElement('span');
+
+            var a_links_cart = createMyElement('a');
+            var img_alink_cart = createMyElement('img');
+            var span_alink_cart = createMyElement('span');
+
+            var a_links_seller = createMyElement('a');
+            var img_alink_seller = createMyElement('img');
+            var span_alink_seller = createMyElement('span');
+
+            var a_links_store = createMyElement('a');
+            var img_alink_store = createMyElement('img');
+            var span_alink_store = createMyElement('span');
+
+
+            /*banner carousel*/
+            var main = createMyElement('main');
+            
+            
+
+            var main_banner = createMyElement('div');
+            var banner_1 = createMyElement('div');
+            var banner_2 = createMyElement('div');
+            var banner_3 = createMyElement('div');
+
+            var banner_img_1 = createMyElement('img');
+            var banner_img_2 = createMyElement('img');
+            var banner_img_3 = createMyElement('img');
+
+            var main_button1 = createMyElement('button');
+            var main_button1_span1 = createMyElement('span');
+            var main_button1_span2 = createMyElement('span');
+
+            var main_button2 = createMyElement('button');
+            var main_button2_span3 = createMyElement('span');
+            var main_button2_span4 = createMyElement('span');
+
+
+
+
+
+            //header element is a container-fluid which is taking header_top and category part
+            header = setAttributeFromObject(header,{'class':'container-fluid'});
+
+            
+            //header_top is a child container
+            header_top.setAttribute('class', 'h_top');
+            //header_top.classList.add("container-xxl");
+
+
+            console.log(header_top);
+
+
+            image.setAttribute('src', './img/logo.svg');
+            div_logo.appendChild(image);
+            
+            header_top.append(div_logo);
+            div_logo.setAttribute('class','logo');
+            
+
+            div_search_bar.appendChild(span_search);
+            //span_tag  = document.write('<h2>Search</h2>');
+            input_search.setAttribute("type", 'search');
+            input_search.setAttribute("size", '52');
+            input_search.setAttribute("placeholder", 'Search for products, brands and more');
+            div_search_bar.appendChild(input_search);
+            div_search.appendChild(div_search_bar);
+            
+            div_search_bar.setAttribute('class','search_bar');
+
+            
+
+
+            header_top.append(div_search);
+            div_search.setAttribute('class','search');
+
+
+            img_alink.setAttribute('src', './img/profile-user.svg');
+            a_links.append(img_alink);
+            span_alink.textContent = 'Login';
+            a_links.append(span_alink);
+
+
+
+            img_alink_cart.setAttribute('src','./img/cart.svg');
+            a_links_cart.append(img_alink_cart);
+            span_alink_cart.textContent = 'Cart';
+            a_links_cart.append(span_alink_cart);
+
+
+            img_alink_seller.setAttribute('src','./img/store.svg');
+            a_links_seller.append(img_alink_seller);
+            span_alink_seller.textContent = 'Become A Seller';
+            a_links_seller.append(span_alink_seller);
+
+
+
+            img_alink_store.setAttribute('src','./img/more.svg');
+            a_links_store.append(img_alink_store);
+            a_links_store.append(span_alink_store);
+            
+
+            div_links.append(a_links);
+            div_links.append(a_links_cart);
+            div_links.append(a_links_seller);
+            div_links.append(a_links_store);
+
+            a_links_cart.setAttribute("href","#");
+            a_links_cart.setAttribute('class', 'icon-btn');
+
+            a_links_seller.setAttribute("href","#");
+            a_links_seller.setAttribute('class', 'icon-btn');
+
+            a_links_store.setAttribute("href","#");
+            a_links_store.setAttribute('class', 'icon-btn');
+            
+            a_links.setAttribute('href', '#');
+            a_links.setAttribute('class', 'icon-btn active');
+            
+
+            header_top.append(div_links);
+            div_links.setAttribute('class','links');
+
+
+            header.append(header_top);
+
+            document.body.appendChild(header);
+
+            main_banner.append(banner_1);
+            banner_1.setAttribute('class','carousel-item active');
+
+            banner_1.append(banner_img_1);
+            banner_img_1.setAttribute('src','./img/banner.webp');
+            banner_img_1.setAttribute('class','d-block w-100');
+
+            main_banner.append(banner_2);
+            banner_2.setAttribute('class','carousel-item');
+
+            banner_2.append(banner_img_2);
+            banner_img_2.setAttribute('src','./img/banner-2.webp');
+            banner_img_2.setAttribute('class','d-block w-100');
+
+            main_banner.append(banner_3);
+            banner_3.setAttribute('class','carousel-item');
+
+            banner_3.append(banner_img_3);
+            banner_img_3.setAttribute('src','./img/banner-3.webp');
+            banner_img_3.setAttribute('class','d-block w-100');
+
+            main.append(main_banner);
+            main_banner.setAttribute('class','carousel-inner');
+
+            document.body.appendChild(main);
+            main.setAttribute('class','carousel slide');
+            main.setAttribute('id','carouselExample');
+
+            main.appendChild(main_button1);
+            main_button1.append(main_button1_span1);
+            main_button1.append(main_button1_span2);
+
+            main_button1_span1.setAttribute('class','carousel-control-prev-icon');
+            main_button1_span1.setAttribute('aria-hidden','true');
+
+
+            main_button1_span2.setAttribute('class','visually-hidden');
+            main_button1_span2.textContent = 'Previous';
+
+            main_button1.setAttribute('class','carousel-control-prev');
+            main_button1.setAttribute('data-bs-target','#carouselExample');
+            main_button1.setAttribute('data-bs-slide','prev');
+
+
+            main.appendChild(main_button2);
+            main_button2.append(main_button2_span3);
+            main_button2.append(main_button2_span4);
+
+            main_button2_span3.setAttribute('class','carousel-control-next-icon');
+            main_button2_span3.setAttribute('aria-hidden','true');
+
+
+            main_button2_span4.setAttribute('class','visually-hidden');
+            main_button2_span4.textContent = 'Next';
+
+            main_button2.setAttribute('class','carousel-control-next');
+            main_button2.setAttribute('data-bs-target','#carouselExample');
+            main_button2.setAttribute('data-bs-slide','next');
+
+
+
+            document.querySelector('header').style.height = '205px';
+            document.querySelector('header').style.border = '1px solid red';
+            
+            document.querySelector('header').style.position = 'relative';
+
+
+            //document.querySelector('.h_top').style.maxWidth = '100vw';
+            document.querySelector('.h_top').style.margin = '0 20px';
+            document.querySelector('.h_top').style.height = '78px';
+            //document.querySelector('.h_top').style.border = '1px solid black';
+            document.querySelector('.h_top').style.position = 'absolute';
+
+
+            /*header_top*/
+
+            document.querySelector('.h_top').style.display = 'flex';
+            document.querySelector('.h_top').style.flex = '1';
+            //document.querySelector('.h_top').style.backgroundColor = '#tomato';
+            document.querySelector('.h_top').style.padding = '10px 5%';
+            document.querySelector('.h_top').style.display = 'flex';
+            document.querySelector('.h_top').style.justifyContent = 'space-between';
+            document.querySelector('.h_top').style.alignItems = 'center';
+            //document.querySelector('.h_top').style.gapStyle = '50px';
+            document.querySelector('.h_top').style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+            document.querySelector('.h_top').style.position = 'sticky';
+            document.querySelector('.h_top').style.top = '0';
+            document.querySelector('.h_top').style.zIndex = '1000';
+
+
+        //    // document.querySelector('div_links').style.display = 'flex';
+            
+        //     document.querySelector('div_links').style.color = '#000';
+        //     document.querySelector('div_links').style.gapStyle = '5px';
+
+            // document.querySelectorAll('div.links.childNodes[0]').style.textDecoration = 'none';
+
+            var node = document.querySelectorAll('.links');
+            //var childNodes = node.querySelectorAll('.links');
+            // console.log(node[0].childNodes[0]);
+            // console.log(node[0].childNodes[1]);
+            // console.log(node[0].childNodes[2]);
+            // console.log(node[0].childNodes[3]);
+
+            // console.log(node[0].childNodes.length);
+
+            node[0].childNodes[0].style.textDecoration = 'none';
+            node[0].childNodes[1].style.textDecoration = 'none';
+            node[0].childNodes[2].style.textDecoration = 'none';
+            node[0].childNodes[3].style.textDecoration = 'none';
+
+            // node[0].childNodes[0].style.display = 'flex';
+            // node[0].childNodes[1].style.display = 'flex';
+            // node[0].childNodes[2].style.display = 'flex';
+            // node[0].childNodes[3].style.display = 'flex';
+
+            node[0].childNodes[0].style.color = '#000';
+            node[0].childNodes[1].style.color = '#000';
+            node[0].childNodes[2].style.color = '#000';
+            node[0].childNodes[3].style.color = '#000';
+
+            node[0].childNodes[0].style.padding = '10px 20px';
+            node[0].childNodes[1].style.padding = '10px 20px';
+            node[0].childNodes[2].style.padding = '10px 20px';
+            node[0].childNodes[3].style.padding = '10px 20px';
+
+            
+            node[0].childNodes[0].style.alignItems = 'center';
+            node[0].childNodes[1].style.alignItems = 'center';
+            node[0].childNodes[2].style.alignItems = 'center';
+            node[0].childNodes[3].style.alignItems = 'center';
+
+
+            node[0].childNodes[0].style.fontSize = '16px';
+            node[0].childNodes[1].style.fontSize = '16px';
+            node[0].childNodes[2].style.fontSize = '16px';
+            node[0].childNodes[3].style.fontSize = '16px';
+
+            //node[0].childNodes[0].style.cursor = 'pointer';
+            //node[0].childNodes[0].style.backgroundColor.active:hover = 'pointer';
+
+            
+            
+            
+
+            //node[0].childNodes[0].style.display = 'flex';
+           // document.querySelector('div.links a').style.textDecoration = 'none';
+            //document.querySelector('a').style.color = '#000';
+            // document.querySelector('a').style.padding = '10px 20px';
+            // document.querySelector('a').style.alignItems = 'center';
+            // document.querySelector('a').style.justifyContent = 'space-between';
+           // document.querySelector('div.links a').style.gapStyle = '5px';
+
+            console.log(typeof node);
+
+            //console.log(node.length);
+
+            //document.querySelector('["type=search"]').style.backgroundColor = 'green';
+
+
+                    //             .searchbar > input[type="search"] {
+
+                    // border: none;
+                    // outline: none;
+                    // background-color: transparent;
+                    // font-size: 1rem;
+                    // font-weight: 300;
+
+                    // }
+
+            //var elist = document.querySelectorAll('.links');
+            // document.querySelectorAll('div.links.childNodes[0]').style.textDecoration = 'none';
+          
+            //document.querySelector('.links a').style.display = 'flex';
+           // document.querySelector('div.links a').style.textDecoration = 'none';
+            //document.querySelector('a').style.color = '#000';
+            // document.querySelector('a').style.padding = '10px 20px';
+            // document.querySelector('a').style.alignItems = 'center';
+            // document.querySelector('a').style.justifyContent = 'space-between';
+           // document.querySelector('div.links a').style.gapStyle = '5px';
+
+
+
+
+            /*
+                .links {
+                    flex: 1;
+                    display: flex;
+                    gap: 5px;
+
+                }
+
+                .links > a {
+                    display: flex;
+                    text-decoration: none;
+                    color: #000;
+                    padding: 10px 20px;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 16px;
+
+                }
+
+                .active:hover {
+                    background-color: #2955e6;
+                    color: #fff;
+                    border-radius: 10px;
+                }
+            
+            
+            */
+
+            
+
+
+
+        </script>
+    </body>
+
+</html>
